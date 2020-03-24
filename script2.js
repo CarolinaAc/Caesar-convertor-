@@ -1,36 +1,42 @@
-
 //general decoder
-const rot13 = (str)=> {
-    let regEx = /[A-Z]/;
-    let smallEx = /[a-z]/;
-    str = str.split("");
-    const charArr = [];
-
-    for (let x = 0; x < str.length; x++){
-      if (regEx.test(str[x])){
-        charArr.push(((str[x].charCodeAt() - 65 + 13) % 26) + 65);
-      } else if (smallEx.test(str[x])){
-        charArr.push(((str[x].charCodeAt() - 97 + 13) % 26) + 97);
-      } else {
-        charArr.push(str[x].charCodeAt()); 
+const rot = (str, key) => {
+  let text = ''
+  for (let x = 0; x < str.length; x++) {
+    const regEx = /[a-zA-Z]/
+    if (regEx.test(str[x])) {
+      if (str[x] === str[x].toUpperCase()) {
+        text += String.fromCharCode(((str.charCodeAt(x) + key - 65) % 26) + 65)
+      } else if (str[x] === str[x].toLowerCase()) {
+        text += String.fromCharCode(((str.charCodeAt(x) + key - 97) % 26) + 97)
       }
+    } else {
+      text += str[x]
     }
-   let text = String.fromCharCode.apply(String, charArr); 
-   return text;
   }
+  return text
+}
 
-  //function for ciphering
-  
-  const ciph = () => {
-    let normaltext = document.getElementById("normaltext").value;
-    document.getElementById('ciphertext').value = rot13(normaltext);
-  }
-  
-  //function to translate from cipher text to normal text
+// function to get key, normaltext and ciphertext information from html
+const getNormal = () => document.getElementById('normaltext').value
+const getCipher = () => document.getElementById('ciphertext').value
+const getKey = () => document.getElementById('key').value % 26
 
-  const deciph = () => { 
-    let ciphertext = document.getElementById("ciphertext").value;
-    document.getElementById('normaltext').value = rot13(ciphertext); 
-  }
-  
+//function to get last function when key
+let lastFun
+const anyFunction = () => (lastFun === 'ciph' ? ciph() : deciph())
 
+//function for ciphering
+const ciph = (normaltext, key) => {
+  lastFun = 'ciph'
+  key = getKey()
+  normaltext = getNormal()
+  document.getElementById('ciphertext').value = rot(normaltext, key)
+}
+
+//function to translate from cipher text to normal text
+const deciph = (ciphertext, key) => {
+  lastFun = 'deciph'
+  key = (26 - getKey()) % 26
+  ciphertext = getCipher()
+  document.getElementById('normaltext').value = rot(ciphertext, key)
+}
