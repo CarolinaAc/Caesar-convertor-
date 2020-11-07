@@ -23,7 +23,7 @@ const getKey = () => document.getElementById('key').value % 26
 
 //function to get last function when key
 let lastFun
-const anyFunction = () => (lastFun === 'ciph' ? ciph() : deciph())
+const anyFunction = () => (lastFun === 'deciph' ? deCiph() : ciph())
 
 //function for ciphering
 const ciph = (normaltext, key) => {

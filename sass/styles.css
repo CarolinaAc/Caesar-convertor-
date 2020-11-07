@@ -1,6 +1,235 @@
-#normaltext {
-  font-family: Helvetica, Arial;
+.sb14:before, .sb13:before {
+  content: '';
+  position: absolute;
 }
 
-/*will continue adding sass styles */
+header h1 {
+  text-align: center;
+  color: #adff2f;
+}
+
+body {
+  background: #000000;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+footer {
+  padding-top: 1em;
+  text-align: right;
+  color: #adff2f;
+}
+
+footer a {
+  color: inherit;
+}
+
+footer a:visited {
+  color: inherit;
+}
+
+textarea.message,
+input.key {
+  font-family: Helvetica, Arial;
+  font-size: 14px;
+  resize: none;
+}
+
+textarea.message:focus,
+input.key:focus {
+  outline: 0.5px solid #0000ff;
+}
+
+@media screen and (min-width: 450px) {
+  textarea.message,
+  input.key {
+    font-size: 20px;
+  }
+}
+
+textarea.message {
+  width: 100%;
+  height: auto;
+  color: #006800;
+  background-color: rgba(10, 100, 10, 0);
+  border: red;
+}
+
+textarea.message::-moz-selection {
+  background-color: #adff2f;
+}
+
+textarea.message::selection {
+  background-color: #adff2f;
+}
+
+textarea.message::-webkit-input-placeholder {
+  color: #006800;
+}
+
+textarea.message:-ms-input-placeholder {
+  color: #006800;
+}
+
+textarea.message::-ms-input-placeholder {
+  color: #006800;
+}
+
+textarea.message::placeholder {
+  color: #006800;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.cipher-container {
+  display: -ms-grid;
+  display: grid;
+  width: 100vmin;
+  height: 70vmin;
+  -ms-grid-columns: minmax(70px, 25%) 1fr minmax(80px, 25%);
+      grid-template-columns: minmax(70px, 25%) 1fr minmax(80px, 25%);
+}
+
+.avatar-container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.avatar {
+  position: relative;
+  width: auto;
+  height: 50%;
+}
+
+.head {
+  position: absolute;
+  left: 37.5%;
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  background: #adff2f;
+}
+
+.body {
+  position: absolute;
+  left: 32.5%;
+  top: 27%;
+  width: 35%;
+  height: 70%;
+  background: #adff2f;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.thinking-container {
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+
+.thinking-container input.key {
+  position: absolute;
+  left: 0;
+  bottom: 30%;
+  border-radius: 30px;
+  text-align: center;
+  width: 80%;
+  height: 26%;
+  border: 4px solid #00bfb6;
+  background-color: transparent;
+  color: #adff2f;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 2.5px solid #00bfb6;
+}
+
+.bubble-top {
+  left: 13%;
+  bottom: 12%;
+  width: 23px;
+  height: 23px;
+  z-index: 0;
+}
+
+.bubble-bottom {
+  left: 30%;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+}
+
+.speech-bubbles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.box3 {
+  width: 65%;
+  margin: 5px auto;
+  border-radius: 15px;
+  background: #00bfb6;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+}
+
+.sb14:before {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-top: 15px solid #00bfb6;
+  border-bottom: 15px solid transparent;
+  top: 0px;
+  border-left: 15px solid #00bfb6;
+  border-right: 15px solid transparent;
+  right: -16px;
+}
+
+.sb13:before {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-top: 15px solid #00bfb6;
+  border-bottom: 15px solid transparent;
+  top: 0px;
+  border-right: 15px solid #00bfb6;
+  border-left: 15px solid transparent;
+  left: -16px;
+}
 /*# sourceMappingURL=styles.css.map */
