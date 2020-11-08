@@ -1,0 +1,19 @@
+{
+  "name": "caesar-convertor",
+  "version": "1.0.0",
+  "description": "Built with HTML, CSS and javascript. At present is able to code and decode text at key 13.",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarolinaAc/Caesar-cipher.git"
+  },
+  "author": "Carolina Acosta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarolinaAc/Caesar-cipher/issues"
+  },
+  "homepage": "https://github.com/CarolinaAc/Caesar-cipher#index.html"
+}

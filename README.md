@@ -21,9 +21,9 @@ Built with HTML, CSS and javascript. At present is able to code and decode text 
 ## Testing:
 
 - [ ] rot function
-  - [ ] Decodes with any key
-  - [ ] Decodes strings with capital and small letters.
-  - [ ] Decodes strings containing numbers and special characters correctly.
+  - [x] Decodes with any key
+  - [x] Decodes strings with capital and small letters.
+  - [x] Decodes strings containing numbers and special characters correctly.
   - [ ] If key is not a number, key = 0
 - [ ] getKey, getNormal and getCipher functions (refactor them to test them)
   - [ ] getNormal and getCipher functions:
