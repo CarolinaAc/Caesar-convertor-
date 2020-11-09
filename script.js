@@ -1,9 +1,7 @@
 /*
-TODO1: refactor ciph, deciph and getKey (getKey needs another function to call for modifying the key or we can make a 
-TODO1: separate funciton for setting key in ciph/deciph)
-TODO2: Make sure key is always sent to rot as a positive number
-TODO3: fix input box so it does not accept any letters or punctuation (at the moment it accepts e)
-TODO4: Debug anyfunction
+
+TODO1: fix input box so it does not accept any letters or punctuation (at the moment it accepts e)
+TODO2: Debug anyfunction
 */
 //* general decoder
 const rot = (str, key) => {
@@ -28,13 +26,18 @@ const getNormal = () => document.getElementById('normaltext').value
 const getCipher = () => document.getElementById('ciphertext').value
 const getKey = () => document.getElementById('key').value % 26
 
-// *function to get last function when key
+// * function to transform key when deciphering
+const transformKey = (num) => {
+  return 26 - ((26 + (num() % 26)) % 26)
+}
+
+// *function to get last function when key changes
 
 let lastFun
 const anyFunction = () => (lastFun === 'deciph' ? deCiph() : ciph())
 
 //* function for ciphering
-const ciph = (normaltext, key) => {
+const ciph = (normaltext, key = 0) => {
   lastFun = 'ciph'
 
   key = getKey()
@@ -51,7 +54,7 @@ const ciph = (normaltext, key) => {
 // *function to translate from cipher text to normal text
 const deCiph = (ciphertext, key) => {
   lastFun = 'deciph'
-  key = 26 - ((26 + getKey()) % 26)
+  key = transformKey(getKey)
 
   console.log('deciph key', key)
   ciphertext = getCipher()
@@ -60,3 +63,4 @@ const deCiph = (ciphertext, key) => {
 
 //* exports functions for testing
 exports.rot = rot
+exports.transformKey = transformKey
