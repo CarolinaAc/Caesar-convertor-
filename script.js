@@ -1,7 +1,9 @@
 /*
 
-TODO1: fix input box so it does not accept any letters or punctuation (at the moment it accepts e)
+TODO1: fix input box so it does not accept any letters or punctuation (at the moment it accepts - and +, I want to keep starting - only)
+TODO1: maybe add css for invalid key values
 TODO2: Debug anyfunction
+
 */
 //* general decoder
 const rot = (str, key) => {
@@ -24,9 +26,14 @@ const rot = (str, key) => {
 // * function to get key, normaltext and ciphertext information from html
 const getNormal = () => document.getElementById('normaltext').value
 const getCipher = () => document.getElementById('ciphertext').value
-const getKey = () => document.getElementById('key').value % 26
+const getKey = () => {
+  const key = document.getElementById('key').value
+  console.log(key)
+  return key.length > 0 ? key % 26 : 0
+}
 
 // * function to transform key when deciphering
+
 const transformKey = (num) => {
   return 26 - ((26 + (num() % 26)) % 26)
 }
@@ -44,8 +51,6 @@ const ciph = (normaltext, key = 0) => {
   if (key < 0) {
     key += 26
   }
-
-  console.log('cipher key', key)
 
   normaltext = getNormal()
   document.getElementById('ciphertext').value = rot(normaltext, key)
