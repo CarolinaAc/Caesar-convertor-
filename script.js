@@ -27,10 +27,20 @@ const rot = (str, key) => {
 const getNormal = () => document.getElementById('normaltext').value
 const getCipher = () => document.getElementById('ciphertext').value
 const getKey = () => {
-  const key = document.getElementById('key').value
-  console.log(key)
-  return key.length > 0 ? key % 26 : 0
+  // const key = document.getElementById('key').value
+  // console.log(key)
+  // return key.length > 0 ? key % 26 : 0
+  return document.getElementById('key').value % 26
 }
+//*  function to remove invalid characters from getKey
+// const fixKey = (key) => {
+//   let newKey = key.toString()
+//   console.log('newkey type ', typeof newKey)
+//   let result = newKey[0] === '-' ? '-' : ''
+//   let subKey = newKey[0] === '-' ? newKey.slice(1) : newKey
+
+//   console.log(subKey.replace(/[-|\+]+/, ''))
+// }
 
 // * function to transform key when deciphering
 
@@ -48,6 +58,7 @@ const ciph = (normaltext, key = 0) => {
   lastFun = 'ciph'
 
   key = getKey()
+  fixKey(key)
   if (key < 0) {
     key += 26
   }
